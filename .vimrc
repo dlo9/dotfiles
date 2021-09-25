@@ -35,6 +35,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'ajh17/VimCompletesMe'
 Plug 'saltstack/salt-vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
 " Load plugins on first use of insert mode, shaving 160+ ms off start-up:
 " https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
 augroup load_load_insert
