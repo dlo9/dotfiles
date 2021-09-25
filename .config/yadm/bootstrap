@@ -12,3 +12,6 @@ yadm submodule update --init
 # Install tmux plugins
 # TODO Use a makefile for this?
 .tmux/plugins/tpm/bin/install_plugins
+
+# Update fish plugins
+fish -c "fisher update"
