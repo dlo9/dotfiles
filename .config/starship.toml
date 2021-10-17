@@ -1,0 +1,6 @@
+# Starship configuration options:
+# https://starship.rs/config
+
+# Keep the prompt on one line
+[line_break]
+disabled = true
