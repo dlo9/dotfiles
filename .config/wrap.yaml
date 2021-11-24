@@ -1,0 +1,30 @@
+variables:
+  CUTTLEFISH_SSH_PORT: 32085
+  CUTTLEFISH_SSH_URL: ssh.sigpanic.com
+
+  DRYWELL_SSH_PORT: 57332
+  DRYWELL_SSH_URL: drywell.astropeach.com
+
+aliases:
+  - alias: drywell
+    program: ssh
+
+    keywords:
+      - keys: [--local]
+        values: [192.168.1.200]
+      - keys: [--remote]
+        values: [-p, $DRYWELL_SSH_PORT, $DRYWELL_SSH_URL]
+
+  - alias: cuttlefish
+    program: ssh
+
+    arguments:
+      - key: -i
+        value: ~/.ssh/archbook.id_rsa
+        cleared-by: [-i]
+
+    keywords:
+      - keys: [--local]
+        values: [192.168.1.230]
+      - keys: [--remote]
+        values: [-p, $CUTTLEFISH_SSH_PORT, $CUTTLEFISH_SSH_URL]
