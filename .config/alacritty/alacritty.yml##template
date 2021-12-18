@@ -114,7 +114,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: DejaVuSansMono Nerd Font
+    family: DejaVuSansMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -154,7 +154,7 @@ font:
 
   # Point size
 {% if yadm.hostname == "pavil" %}
-  size: 6.5
+  size: 7
 {% else %}
   #size: 11
 {% endif %}

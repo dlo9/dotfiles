@@ -29,18 +29,29 @@ endif
 
 " Run :PlugInstall to install plugins
 call plug#begin('~/.vim/plugged')
-Plug 'deviantfero/wpgtk.vim'
-Plug 'dylanaraps/wal'
+"Plug 'deviantfero/wpgtk.vim'
+"Plug 'dylanaraps/wal'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
-Plug 'ajh17/VimCompletesMe'
-Plug 'saltstack/salt-vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
+
+" Autocomplete
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+
+" Install your sources
+Plug 'Shougo/ddc-around'
+
+" Install your filters
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+
+
 " Load plugins on first use of insert mode, shaving 160+ ms off start-up:
 " https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
 augroup load_load_insert
 autocmd!
-autocmd InsertEnter * call plug#load('YouCompleteMe') | autocmd! load_load_insert
+autocmd InsertEnter * call plug#load('ddc') | autocmd! load_load_insert
 augroup END
 call plug#end()
 
@@ -50,6 +61,40 @@ autocmd VimEnter *
 \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \|   PlugInstall --sync | q
 \| endif
+
+""""""""""""""""""
+"" Autocomplete ""
+""""""""""""""""""
+
+" Use around source.
+call ddc#custom#patch_global('sources', ['around'])
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', {
+\  '_': {
+\    'matchers': ['matcher_head'],
+\    'sorters': ['sorter_rank'],
+\  },
+\  'around': {
+\	    'mark': 'A',
+\  },
+\})
+
+call ddc#custom#patch_global('sourceParams', {
+\  'around': {'maxSize': 500},
+\})
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\  ddc#map#pum_visible() ? '<C-n>' :
+\  (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\  '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
 
 """""""""""""
 "" Airline ""
