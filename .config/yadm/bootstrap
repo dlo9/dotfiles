@@ -2,6 +2,19 @@
 
 set -e
 
+if which yay > /dev/null; then
+	PACKAGES=(
+		alacritty
+		fish
+		starship
+		tmux
+		nerd-fonts-dejavu-complete
+		deno
+	)
+
+	yay -S --noconfirm --needed "${PACKAGES[@]}"
+fi
+
 # Because Git submodule commands cannot operate without a work tree, they must
 # be run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"

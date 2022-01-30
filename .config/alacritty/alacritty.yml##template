@@ -154,7 +154,7 @@ font:
 
   # Point size
 {% if yadm.hostname == "pavil" %}
-  size: 7
+  size: 10
 {% else %}
   #size: 11
 {% endif %}
