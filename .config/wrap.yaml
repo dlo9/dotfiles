@@ -3,7 +3,7 @@ variables:
   CUTTLEFISH_SSH_URL: ssh.sigpanic.com
 
   DRYWELL_SSH_PORT: 57332
-  DRYWELL_SSH_URL: drywell.astropeach.com
+  DRYWELL_SSH_URL: drywell.sigpanic.com
 
 aliases:
   - alias: drywell
