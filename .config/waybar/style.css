@@ -1,210 +1,139 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
- 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
- /*
-Arc-Dark Color Scheme
-*/
+/*
+ ********************************************
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
+ *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
+ *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ ********************************************
+ */
 
-@define-color highlight #5294e2 ;
-@define-color base1  #404552 ;
+ /* Inspired by: https://github.com/jakehamilton/dotfiles/blob/master/waybar/config */
 
- 
- 
-@keyframes blink-warning {
-    70% {
-        color: white;
-    }
- 
-    to {
-        color: white;
-        background-color: orange;
-    }
-}
- 
-@keyframes blink-critical {
-    70% {
-      color: white;
-    }
- 
-    to {
-        color: white;
-        background-color: red;
-    }
-}
- 
- 
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
- 
-/* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 1px;
-    padding: 0;
+	border: none;
+	border-radius: 0;
+	font-family: Nerd Font Hack;
+	font-size: 14px;
+	min-height: 5px;
 }
 
-/* The whole bar */
-#waybar {
-    background: transparent;
-    color: #bebebe;
-    background-color: @base1;
-    font-family: UbuntuMono;
-    font-size: 14px;
+label {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+
+	margin-left: 2px;
+	margin-right: 2px;
+	padding-left: 13px;
+	padding-right: 13px;
+	border-radius: 26px;
+
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36;
 }
 
-/* Each module */
-#battery,
-#clock,
-#backlight,
-#cpu,
-#custom-keyboard-layout,
-#memory,
-#mode,
-#custom-weather,
-#network,
-#pulseaudio,
-#temperature,
-#tray,
-#idle_inhibitor,
-#custom-PBPbattery{
-      padding:0.5rem 0.6rem;
-      margin: 1px 0px;
+window#waybar {
+	background: transparent;
 }
 
-
- 
- 
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
- 
-#battery {
-        
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-}
- 
-#battery.warning {
-        color: orange;
-}
- 
-#battery.critical {
-        color: red;
-}
- 
-#battery.warning.discharging {
-        animation-name: blink-warning;
-        animation-duration: 3s;
-}
- 
-#battery.critical.discharging {
-        animation-name: blink-critical;
-        animation-duration: 2s;
+window#waybar.hidden {
+	opacity: 0.2;
 }
 
-#cpu{
- 
-}
-#cpu.warning {
-        color: orange;
-}
- 
-#cpu.critical {
-        color: red;
-}
- 
-#memory {
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-}
- 
-#memory.warning {
-        color: orange;
- }
- 
-#memory.critical {
-        color: red;
-        animation-name: blink-critical;
-        animation-duration: 2s;
-        padding-left:5px;
-        padding-right:5px;
-}
- 
-#mode {
-    background: @highlight;
-    border-bottom: 3px transparent;
-    color:white;
-    margin-left: 5px;
-    padding:7;
-  }
- 
-#network.disconnected {
-        color: orange;
-}
-
-#pulseaudio{
-padding-top:6px;
-} 
-#pulseaudio.muted {
-    color: @highlight; 
-}
- 
-#temperature.critical {
-        color: red;
-}
- 
 #window {
-        font-weight: bold;
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
 }
- 
-#workspaces{
-font-size:13px;
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: #4d4d4d;
+	background: #e6e6e6;
 }
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 8px;
+	border-radius: 26px;
+	background: #282a36;
+	transition: none;
+}
+
 #workspaces button {
-    border-bottom: 3px solid transparent;
-    margin-bottom: 0px;
-    padding:0px;
-    
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
 }
 
 #workspaces button.focused {
-     border-bottom: 3px solid  @highlight;
-     margin-bottom: 1px;
-     padding-left:0;
-  }
-
-#workspaces button.urgent {
-        border-color: #c9545d;
-        color: #c9545d;
-}
- 
-#custom-power{
-   margin-left:15px;
-   margin-right:15px;
-   font-size:15px;
-}   
-#custom-launcher{
-   font-size:15px;
-   margin-left:15px;
-   margin-right:10px;
- }   
-
-#backlight.icon{
- padding-right:1px;
- font-size: 13px;	
+	color: #9aedfe;
 }
 
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #ff79c6;
+}
 
+#mpd {
+	color: #4d4d4d;
+	background: #5af78e;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+	color: #f8f8f2;
+	background: #282a36;
+}
+
+#network {
+	color: #4d4d4d;
+	background: #bd93f9;
+}
+
+#idle_inhibitor {
+	color: #4d4d4d;
+	background: #bd93f9;
+}
+
+#pulseaudio {
+	color: #4d4d4d;
+	background: #9aedfe;
+}
+
+#temperature {
+	color: #4d4d4d;
+	background: #5af78e;
+}
+
+#cpu {
+	color: #4d4d4d;
+	background: #f1fa8c;
+}
+
+#memory {
+	color: #4d4d4d;
+	background: #ff6e67;
+}
+
+#clock {
+	color: #f8f8f2;
+	background: #282a36;
+}

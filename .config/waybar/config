@@ -1,20 +1,17 @@
-// Global 
+// Global
 {
-	"layer": "top",   
-      	"position": "top",
-	// If height property would be not present, it'd be calculated dynamically
-     "height": 30,
-     "width" : 10,
- 
-    	"modules-left": [
-        	"custom/launcher",
-        	"sway/workspaces",
-        	"sway/mode",
-	],
- 
-	"modules-center": [     
+    "layer": "top",
+		"position": "top",
+
+		"modules-left": [
+				"custom/launcher",
+				"sway/workspaces",
+				"sway/mode",
+		],
+
+	"modules-center": [
       	],
- 
+
     	"modules-right": [
                 "network",
 	        "idle_inhibitor",
@@ -32,7 +29,7 @@
           "custom/weather",
 	        "custom/power",
      	],
- 
+
 // Modules
 
 
@@ -44,7 +41,7 @@
 
    }
 },
- 
+
 "battery": {
     	"states": {
       		// "good": 95,
@@ -63,15 +60,15 @@
     	"exec": "~/.config/waybar/scripts/PBPbattery.sh",
     	"format": "{}",
 },
- 
- 
+
+
 "clock": {
       	"interval": 10,
       	"format-alt": " {:%e %b %Y}", // Icon: calendar-alt
       	"format": "{:%H:%M}",
       	"tooltip-format": "{:%e %B %Y}"
 },
- 
+
 "cpu": {
         "interval": 5,
         "format": "  {usage}% ({load})", // Icon: microchip
@@ -81,7 +78,7 @@
         },
         "on-click": "xfce4-terminal -e 'htop'",
 },
- 
+
 "custom/keyboard-layout": {
       	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
       	// Interval set only as a fallback, as the value is updated by signal
@@ -92,17 +89,17 @@
       	"tooltip": false,
         "on-click": "~/.config/waybar/scripts/keyhint.sh",
 },
- 
+
 "memory": {
         "interval": 5,
         "format": " {}%", // Icon: memory
-        "on-click": "xfce4-terminal -e 'htop'", 
+        "on-click": "xfce4-terminal -e 'htop'",
         "states": {
             	"warning": 70,
             	"critical": 90
         }
 },
- 
+
 "network": {
       	"interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
@@ -115,19 +112,19 @@
             "interface": "tun0",
             "format": "  {essid} ({signalStrength}%)",
             "format-disconnected": "⚠  Disconnected",
-           "tooltip-format": "{ifname}: {ipaddr}/{cidr}",          
+           "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
 },
- 
+
 "sway/mode": {
      	"format": "{}",
         "tooltip": false
 },
- 
+
 "sway/window": {
         "format": "{}",
         "max-length": 120
 },
- 
+
 "sway/workspaces": {
          "disable-scroll": true,
          "disable-markup" : false,
@@ -155,7 +152,7 @@
     	"on-scroll-up": "pamixer -ui 2",
     	"on-scroll-down": "pamixer -ud 2",
 },
- 
+
 "custom/weather": {
     	"exec": "~/.config/waybar/scripts/weather.sh 'Vancouver,WA'",
     	"return-type": "json",
@@ -166,7 +163,7 @@
        	"icon-size": 18,
        	"spacing":10,
  },
- 
+
 "backlight#icon": {
     	"format": "{icon}",
     	"format-icons": [""],
@@ -185,25 +182,25 @@
     	"on-click": "exec firefox",
     	"tooltip": false
 },
- 
+
 "custom/terminal": {
     	"format": " ",
     	"on-click": "exec alacritty",
     	"tooltip": false
 },
- 
+
 "custom/files": {
     	"format": " ",
     	"on-click": "exec thunar",
     	"tooltip": false
 },
- 
+
 "custom/launcher": {
     	"format":" ",
     	"on-click": "exec wofi -c ~/.config/wofi/config -I",
     	"tooltip": false,
 },
- 
+
 "custom/power": {
     	"format":"⏻",
     	"on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
@@ -211,4 +208,3 @@
     	},
 
 }
-
