@@ -28,3 +28,18 @@ aliases:
         values: [192.168.1.230]
       - keys: [--remote]
         values: [-p, $CUTTLEFISH_SSH_PORT, $CUTTLEFISH_SSH_URL]
+
+  # System yadm
+  # Clone via: syadm clone -w / <repo>
+  - alias: syadm
+    program: sudo
+
+    arguments:
+      - key: /etc/yadm/data
+      - key: --yadm-data
+      - key: /etc/yadm/config
+      - key: --yadm-dir
+      - key: yadm
+      - key: GIT_SSH_COMMAND=ssh -i $HOME/.ssh/id_rsa
+      - key: HOME=$HOME
+
