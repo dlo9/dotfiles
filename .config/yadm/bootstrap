@@ -2,6 +2,9 @@
 
 set -e
 
+USER_SHELL=fish
+
+# Install packages
 if which yay > /dev/null; then
 	PACKAGES=(
 		alacritty
@@ -13,6 +16,12 @@ if which yay > /dev/null; then
 	)
 
 	yay -S --noconfirm --needed "${PACKAGES[@]}"
+fi
+
+# Set shell
+USER_SHELL="$(chsh -l | grep "$USER_SHELL" | head -1)"
+if [ "$SHELL" != "$USER_SHELL" -a -n "$USER_SHELL" ]; then
+	chsh -s "$USER_SHELL"
 fi
 
 # Because Git submodule commands cannot operate without a work tree, they must
