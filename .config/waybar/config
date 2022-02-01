@@ -17,11 +17,8 @@
 	        "idle_inhibitor",
 	        "memory",
 	        "cpu",
-	        // "custom/weather",
 	        "pulseaudio",
-	        "custom/keyboard-layout",
 	        "battery",
-                //"custom/PBPbattery",
 	        "backlight",
 	        "clock",
 	        "tray",
@@ -54,12 +51,6 @@
     	// "format-full": "",
     	"format-icons": ["", "", "", "", ""]
 },
-
-"custom/PBPbattery": {
-    	"exec": "~/.config/waybar/scripts/PBPbattery.sh",
-    	"format": "{}",
-},
-
 
 "clock": {
       	"interval": 10,
