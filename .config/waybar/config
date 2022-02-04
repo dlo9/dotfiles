@@ -139,8 +139,6 @@
       		"default": [""]
 	},
     	"on-click": "pavucontrol",
-    	"on-scroll-up": "pamixer -ui 2",
-    	"on-scroll-down": "pamixer -ud 2",
 },
 
 "custom/weather": {
