@@ -9,7 +9,9 @@
 		"sway/mode",
 	],
 
-	"modules-center": [],
+	"modules-center": [
+		"clock"
+	],
 
 	"modules-right": [
 		"network",
@@ -19,7 +21,6 @@
 		"pulseaudio",
 		"battery",
 		"backlight",
-		"clock",
 		"tray",
 		"custom/weather",
 		"custom/power",
