@@ -7,12 +7,22 @@ USER_SHELL=fish
 # Install packages
 if which yay > /dev/null; then
 	PACKAGES=(
+		# Terminal
 		alacritty
+		tmux
+
+		# Shell
 		fish
 		starship
-		tmux
+
+		# Font
 		nerd-fonts-dejavu-complete
+
+		# Vim
 		deno
+
+		# Sway - make unfocused more transparent
+		python-i3ipc
 	)
 
 	yay -S --noconfirm --needed "${PACKAGES[@]}"
