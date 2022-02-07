@@ -10,31 +10,23 @@
 	],
 
 	"modules-center": [
-		"clock"
+		"clock",
+		//"custom/separator",
+		"custom/weather",
 	],
 
 	"modules-right": [
 		"network",
-		"idle_inhibitor",
 		"memory",
 		"cpu",
 		"pulseaudio",
 		"battery",
 		"backlight",
+		"temperature",
 		"tray",
-		"custom/weather",
 		"custom/power",
 	],
 	
-	// Modules
-	"idle_inhibitor": {
-		"format": "{icon} ",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-
 	"battery": {
 		"states": {
 			// "good": 95,
@@ -58,35 +50,24 @@
 	"clock": {
 		"interval": 10,
 		"format-alt": " {:%e %b %Y}", // Icon: calendar-alt
-		"format": "{:%H:%M}",
+		"format": "{:%H:%M} ",
 		"tooltip-format": "{:%e %B %Y}"
 	},
 
 	"cpu": {
 		"interval": 5,
-		"format": "  {usage}% ({load})", // Icon: microchip
+		"format": "  {usage}% ({load:4})",
 		"states": {
 			"warning": 70,
 			"critical": 90,
 		},
-		"on-click": "xfce4-terminal -e 'htop'",
-	},
-	
-	"custom/keyboard-layout": {
-		"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-		// Interval set only as a fallback, as the value is updated by signal
-		"interval": 30,
-		"format": "  {}", // Icon: keyboard
-		// Signal sent by Sway key binding (~/.config/sway/key-bindings)
-		"signal": 1, // SIGHUP
-		"tooltip": false,
-		"on-click": "~/.config/waybar/scripts/keyhint.sh",
+		"on-click": "alactritty -e htop",
 	},
 
 	"memory": {
 		"interval": 5,
-		"format": " {}%", // Icon: memory
-		"on-click": "xfce4-terminal -e 'htop'",
+		"format": "  {}%",
+		"on-click": "alacritty -e htop",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -94,12 +75,12 @@
 	},
 
 	"network": {
-		"interval": 5,
-		"format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-		"format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+		"interval": 1,
+		"format-wifi": "  {essid} ({signalStrength}%)",
+		"format-ethernet": "  {ifname}: 祝 {bandwidthUpBits}  {bandwidthDownBits}",
 		"format-disconnected": "⚠  Disconnected",
 		"tooltip-format": "{ifname}: {ipaddr}",
-		"on-click": "xfce4-terminal -e 'nmtui'",
+		"on-click": "alacritty -e nmtui",
 	},
 
 	"network#vpn": {
@@ -127,9 +108,9 @@
 	},
 
 	"pulseaudio": {
-		"scroll-step": 1, // %, can be a float
-		"format": "{volume}% {icon}",
-		"format-bluetooth": "{volume}% {icon}  {format_source}",
+		"scroll-step": 1,
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%  {format_source}",
 		"format-bluetooth-muted": " {icon}  {format_source}",
 		"format-muted": "婢 {format_source}",
 		"format-source": "{volume}% ",

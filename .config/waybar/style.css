@@ -1,139 +1,99 @@
-/*
- ********************************************
- *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
- *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
- *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
- *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
- *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
- ********************************************
- */
-
 /* Inspired by: https://github.com/jakehamilton/dotfiles/blob/master/waybar/config */
 
-/* Backgrounds */
-@define-color bg-main #282a36;
-@define-color bg-launcher @bg-main;
-@define-color bg-workspace @bg-main;
-@define-color bg-network @bg-main;
-@define-color bg-cpu @bg-main;
-@define-color bg-mem @bg-main;
-@define-color bg-audio @bg-main;
-@define-color bg-battery @bg-main;
-@define-color bg-display @bg-main;
-@define-color bg-systray @bg-main;
-@define-color bg-weather @bg-main;
-@define-color bg-power @bg-main;
-
-/* Text colors */
+/* Color definitions */
+@define-color dark #282a36;
 @define-color light #f8f8f2;
-@define-color dark #4d4d4d;
-@define-color launcher @light;
-@define-color workspace @light;
-@define-color network @;
-@define-color cpu @light;
-@define-color mem @light;
-@define-color audio @light;
-@define-color battery @light;
-@define-color display @light;
-@define-color systray @light;
-@define-color weather @light;
-@define-color power @light;
+@define-color purple #bd93f9;
+@define-color red #ff6e67;
+@define-color yellow #f1fa8c;
+@define-color teal #9aedfe;
+@define-color green #5af78e;
 
 * {
-	font-family: Nerd Font Hack;
-	font-size: 14px;
-	min-height: 5px;
+  font-family: DejaVuSansMono Nerd Font;
+  font-size: 14px;
+  min-height: 1em;
+  margin: 0;
+  padding: 0;
+
+  transition: none;
+  border-radius: 26px;
+  background: transparent;
 }
 
 label {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
+  margin: 0.2em;
+  padding: 0 0.5em;
 
-	margin-left: 2px;
-	margin-right: 2px;
-	padding-left: 13px;
-	padding-right: 13px;
-	border-radius: 26px;
-
-	transition: none;
-	color: @main;
-	background: #282a36;
-}
-
-#waybar {
-	background: transparent;
-}
-
-#waybar.hidden {
-	/*opacity: 0.2;*/
+  background: alpha(@light, 0.05);
 }
 
 #workspaces {
-	margin-top: 8px;
-	margin-left: 12px;
-	margin-bottom: 8px;
-	border-radius: 26px;
-	background: @bg-workspace;
-	/* transition: none; */
+  background: alpha(@light, 0.05);
+  margin-left: 1em;
 }
 
-#workspaces button {
-	transition: none;
-	background: transparent;
-	font-size: 16px;
-
-	border-radius: 26px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: transparent;
+/* Workspace highlighting */
+#workspaces label {
+  background: transparent;
 }
 
-#workspaces button.focused {
-	color: #9aedfe;
-	border-color: shade(@bg-workspace, 8);
+#workspaces :hover {
+  background: alpha(@light, 0.07);
 }
 
-#workspaces button:hover {
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #ff79c6;
-	border-color: shade(@bg-workspace, 2);
+#workspaces .focused {
+  background: alpha(@light, 0.21);
 }
 
+/* Module backgrounds */
 #network {
-	color: #4d4d4d;
-	background: #bd93f9;
-}
-
-#idle_inhibitor {
-	color: #4d4d4d;
-	background: #bd93f9;
-}
-
-#pulseaudio {
-	color: #4d4d4d;
-	background: #9aedfe;
+  color: @dark;
+  background: @purple;
 }
 
 #temperature {
-	color: #4d4d4d;
-	background: #5af78e;
-}
-
-#cpu {
-	color: #4d4d4d;
-	background: #f1fa8c;
+  color: @dark;
+  background: @green;
 }
 
 #memory {
-	color: #4d4d4d;
-	background: #ff6e67;
+  color: @dark;
+  background: @red;
 }
 
+#cpu {
+  color: @dark;
+  background: @yellow;
+}
+
+#pulseaudio {
+  color: @dark;
+  background: @teal;
+}
+
+#tray {
+  background: @dark;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+#clock, #custom-weather {
+  background: transparent;
+}
+
+/* Center weather icon*/
 #clock {
-	color: #f8f8f2;
-	background: #282a36;
+	margin-right: 0em;
+	padding-right: 0em;
+}
+
+#custom-weather {
+	margin-left: 0em;
+	padding-left: 0em;
+}
+
+/* Fix tooltip background */
+tooltip, tooltip label {
+  background: @dark;
 }
