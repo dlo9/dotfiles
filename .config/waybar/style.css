@@ -24,6 +24,7 @@
 label {
   margin: 0.2em;
   padding: 0 0.5em;
+  color: @light;
 
   background: alpha(@light, 0.05);
 }
@@ -83,14 +84,9 @@ label {
 }
 
 /* Center weather icon*/
-#clock {
-	margin-right: 0em;
-	padding-right: 0em;
-}
-
 #custom-weather {
-	margin-left: 0em;
-	padding-left: 0em;
+	margin-left: -0.4em;
+	margin-right: 5.3em;
 }
 
 /* Fix tooltip background */

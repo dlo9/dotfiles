@@ -33,9 +33,9 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
-		"format-plugged": "{capacity}% ",
+		"format": "{icon}  {capacity}%",
+		"format-charging": "  {capacity}%",
+		"format-plugged": "  {capacity}%",
 		// "format-good": "", // An empty format will hide the module
 		// "format-full": "",
 		"format-icons": [
@@ -48,15 +48,15 @@
 	},
 
 	"clock": {
-		"interval": 10,
-		"format-alt": " {:%e %b %Y}", // Icon: calendar-alt
-		"format": "{:%H:%M} ",
-		"tooltip-format": "{:%e %B %Y}"
+		"interval": 1,
+		"format": "   {:%H:%M:%S}",
+		"format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+		"tooltip-format": "{:%H:%M:%S, %a, %B %d, %Y}"
 	},
 
 	"cpu": {
 		"interval": 5,
-		"format": "  {usage}% ({load:4})",
+		"format": " {usage}% ({load:4})",
 		"states": {
 			"warning": 70,
 			"critical": 90,
@@ -66,7 +66,7 @@
 
 	"memory": {
 		"interval": 5,
-		"format": "  {}%",
+		"format": " {}%",
 		"on-click": "alacritty -e htop",
 		"states": {
 			"warning": 70,
@@ -76,17 +76,17 @@
 
 	"network": {
 		"interval": 1,
-		"format-wifi": "  {essid} ({signalStrength}%)",
-		"format-ethernet": "  {ifname}: 祝 {bandwidthUpBits}  {bandwidthDownBits}",
-		"format-disconnected": "⚠  Disconnected",
+		"format-wifi": " {essid}({signalStrength}%)",
+		"format-ethernet": " {ifname}: 祝 {bandwidthUpBits}  {bandwidthDownBits}",
+		"format-disconnected": "⚠ Disconnected",
 		"tooltip-format": "{ifname}: {ipaddr}",
 		"on-click": "alacritty -e nmtui",
 	},
 
 	"network#vpn": {
 		"interface": "tun0",
-		"format": "  {essid} ({signalStrength}%)",
-		"format-disconnected": "⚠  Disconnected",
+		"format": " {essid} ({signalStrength}%)",
+		"format-disconnected": "⚠ Disconnected",
 		"tooltip-format": "{ifname}: {ipaddr}/{cidr}",
 	},
 
@@ -126,8 +126,8 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol",
-		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
 	},
 
 	"custom/weather": {
@@ -142,7 +142,7 @@
 	},
 
 	"backlight": {
-		"format": "{percent}% <span font='16' rise='-2500'>{icon}</span>",
+		"format": "{icon} {percent}%",
 		"format-icons": [
 			"",
 			"",
