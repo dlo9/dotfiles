@@ -9,6 +9,7 @@ if which yay > /dev/null; then
 	PACKAGES=(
 		# Terminal
 		alacritty
+		alacritty-themes
 		tmux
 
 		# Shell
