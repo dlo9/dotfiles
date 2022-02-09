@@ -1,0 +1,62 @@
+# https://github.com/misterio77/flavours
+# https://github.com/Misterio77/dotfiles/blob/sway/home/.config/flavours/config.toml
+
+#shell = "bash -c '{}'"
+
+#[[item]]
+#file = "~/.config/sway/border.svg"
+#template = "svg-circle"
+#rewrite = true
+#hook = "~/.config/sway/rendersvg.sh border"
+
+#[[item]]
+#file = "~/.config/sway/border-selected.svg"
+#template = "svg-circle"
+#subtemplate = "selected"
+#rewrite = true
+#hook = "~/.config/sway/rendersvg.sh border-selected"
+
+[[item]]
+#file = "~/.config/nvim/colors/base16.vim"
+file = "~/.vimrc"
+template = "vim"
+#rewrite = true
+#hook = "reloadnvim"
+start = '" Start flavours'
+end = '" End flavours'
+
+[[item]]
+file = "~/.vimrc"
+template = "vim-airline-themes"
+start = '" Start flavours airline'
+end = '" End flavours airline'
+
+[[item]]
+file = "~/.config/fish/conf.d/base16.sh"
+template = "shell"
+rewrite = true
+
+[[item]]
+file = "~/.config/alacritty/alacritty.yml"
+template = "alacritty"
+subtemplate = "default-256"
+
+#[[item]]
+#file = "~/.config/waybar/colors.css"
+#template = "waybar"
+#hook = "pkill -SIGRTMIN+7 waybar"
+#rewrite = true
+
+#[[item]]
+#file = "~/.config/rofi/themes/colors.rasi"
+#template = "rofi"
+#subtemplate = "colors"
+#rewrite = true
+
+#[[item]]
+#file = "~/.config/sway/config"
+#template = "sway"
+#subtemplate = "colors"
+#light = false
+##hook = "while true; do pgrep -x inkscape && while true; do pgrep -x inkscape || break; done && break; done && swaymsg reload"
+#hook = "swaymsg reload"

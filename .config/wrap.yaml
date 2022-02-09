@@ -43,3 +43,12 @@ aliases:
       - key: GIT_SSH_COMMAND=ssh -i $HOME/.ssh/id_rsa
       - key: HOME=$HOME
 
+  - alias: theme
+    program: sh
+
+    arguments:
+      - key: -c
+
+    keywords:
+      - keys: [--iterate]
+        values: ['flavours list | xargs -I {} -d " " sh -c "echo {}; flavours apply {}; sleep 1"']

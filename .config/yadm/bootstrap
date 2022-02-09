@@ -24,10 +24,15 @@ if which yay > /dev/null; then
 
 		# Sway - make unfocused more transparent
 		python-i3ipc
+
+		flavours
 	)
 
 	yay -S --noconfirm --needed "${PACKAGES[@]}"
 fi
+
+# Install themes
+flavours update all &
 
 # Set shell
 USER_SHELL="$(chsh -l | grep "$USER_SHELL" | head -1)"
