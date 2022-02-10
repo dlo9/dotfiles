@@ -51,4 +51,4 @@ aliases:
 
     keywords:
       - keys: [--iterate]
-        values: ['flavours list | xargs -I {} -d " " sh -c "echo {}; flavours apply {}; sleep 1"']
+        values: ['flavours list | xargs -I {} -d " " sh -c "echo {}; flavours apply --light {}; sleep 1"']

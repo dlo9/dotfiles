@@ -17,6 +17,13 @@
 #hook = "~/.config/sway/rendersvg.sh border-selected"
 
 [[item]]
+file = "~/.config/sway/config.d/theme"
+template = "sway"
+subtemplate = "colors"
+light = false
+hook = "swaymsg reload"
+
+[[item]]
 #file = "~/.config/nvim/colors/base16.vim"
 file = "~/.vimrc"
 template = "vim"
@@ -52,11 +59,3 @@ subtemplate = "default-256"
 #template = "rofi"
 #subtemplate = "colors"
 #rewrite = true
-
-#[[item]]
-#file = "~/.config/sway/config"
-#template = "sway"
-#subtemplate = "colors"
-#light = false
-##hook = "while true; do pgrep -x inkscape && while true; do pgrep -x inkscape || break; done && break; done && swaymsg reload"
-#hook = "swaymsg reload"
