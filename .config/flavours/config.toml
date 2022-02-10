@@ -24,11 +24,8 @@ light = false
 hook = "swaymsg reload"
 
 [[item]]
-#file = "~/.config/nvim/colors/base16.vim"
 file = "~/.vimrc"
 template = "vim"
-#rewrite = true
-#hook = "reloadnvim"
 start = '" Start flavours'
 end = '" End flavours'
 
@@ -54,8 +51,8 @@ subtemplate = "default-256"
 #hook = "pkill -SIGRTMIN+7 waybar"
 #rewrite = true
 
-#[[item]]
-#file = "~/.config/rofi/themes/colors.rasi"
-#template = "rofi"
-#subtemplate = "colors"
-#rewrite = true
+[[item]]
+file = "~/.config/wofi/style.css"
+template = "wofi"
+start = '/* Start flavours */'
+end = '/* End flavours */'
