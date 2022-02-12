@@ -43,6 +43,13 @@ aliases:
       - key: GIT_SSH_COMMAND=ssh -i $HOME/.ssh/id_rsa
       - key: HOME=$HOME
 
+  - alias: a
+    program: awk
+
+    keywords:
+      - keys: [--unique, -u]
+        values: ['!a[\$0]++']
+
   - alias: theme
     program: sh
 
