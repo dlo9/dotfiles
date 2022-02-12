@@ -33,6 +33,7 @@ fi
 
 # Install themes
 flavours update all &
+flavours apply "$(cat ~/.local/share/flavours/lastscheme)"
 
 # Set shell
 USER_SHELL="$(chsh -l | grep "$USER_SHELL" | head -1)"
