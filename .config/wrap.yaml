@@ -59,3 +59,6 @@ aliases:
     keywords:
       - keys: [--iterate]
         values: ['flavours list | xargs -I {} -d " " sh -c "echo {}; flavours apply --light {}; sleep 1"']
+      - keys: [--show]
+        values:
+          - flavours info "\$(flavours current)" | awk '!a[\$0]++'
