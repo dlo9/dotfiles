@@ -2,7 +2,7 @@
 set $mod Mod1
 
 # Your preferred terminal emulators
-set $term-float alacritty
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -29,7 +29,7 @@ exec swayidle -w\
 # Basics:
 #
     # Start a floating terminal
-    bindsym $mod+Return exec $term-float    
+    bindsym $mod+Return exec $term
          
     # Open the power menu
     bindsym $mod+Shift+e exec $powermenu
