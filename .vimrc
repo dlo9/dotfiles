@@ -37,6 +37,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Auto-pastemode
 Plug 'ConradIrwin/vim-bracketed-paste'
 
+" Auto-indent
+Plug 'timakro/vim-yadi'
+
+" Remove trailing whitespace
+Plug 'axelf4/vim-strip-trailing-whitespace'
+
 " Autocomplete
 Plug 'Shougo/ddc.vim'
 Plug 'vim-denops/denops.vim'
@@ -729,12 +735,21 @@ set ffs=unix,dos,mac
 "" Text, tab and indent related ""
 """"""""""""""""""""""""""""""""""
 
-" Backspace removes <tabstop> spaces from the start of the line
-"set smarttab
+" Try to auto detect and use the indentation of a file when opened.
+autocmd BufRead * DetectIndent
 
-" 1 tab == 4 spaces
-set shiftwidth=2
+" Otherwise use file type specific indentation
+filetype plugin indent on
+
+" Set a fallback here in case detection fails and there is no file type
+" plugin available. You can also omit this, then Vim defaults to tabs.
+set expandtab shiftwidth=2 softtabstop=2
+
+" You stay in control of your tabstop setting.
 set tabstop=2
+
+" Backspace removes <tabstop> spaces from the start of the line
+set smarttab
 
 " Linewrap obeys word boundaries
 set linebreak
@@ -832,15 +847,6 @@ nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-exe "normal mz"
-%s/\s\+$//ge
-exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vimgrep searching and cope displaying
