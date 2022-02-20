@@ -13,6 +13,9 @@
 
   /* None */
   /*border-radius: 0;*/
+
+  outline: none;
+  border-color: transparent;
 }
 
 #waybar {
