@@ -30,14 +30,14 @@ file = "~/.config/alacritty/alacritty.yml"
 template = "alacritty"
 subtemplate = "default-256"
 
-#[[item]]
-#file = "~/.config/waybar/colors.css"
-#template = "waybar"
-#hook = "pkill -SIGRTMIN+7 waybar"
-#rewrite = true
-
 [[item]]
 file = "~/.config/wofi/style.css"
+template = "wofi"
+start = '/* Start flavours */'
+end = '/* End flavours */'
+
+[[item]]
+file = "~/.config/wofi/style.widgets.css"
 template = "wofi"
 start = '/* Start flavours */'
 end = '/* End flavours */'
@@ -66,4 +66,5 @@ hook = "makoctl reload"
 file = "~/.config/waybar/theme.css"
 template = "waybar"
 rewrite = true
-hook = "swaymsg reload"
+#hook = "swaymsg reload"
+hook = "pkill -SIGRTMIN+7 waybar"

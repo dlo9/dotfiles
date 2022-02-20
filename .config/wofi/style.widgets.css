@@ -1,54 +1,53 @@
-/*
-Arc-Dark Color Scheme
-*/
-
-@define-color highlight #5294e2;
-@define-color base1  #404552;
-@define-color base2  #40455;
-@define-color base3  #4b5160;
-
-
 *{
-    font-family: UbuntuMono;
+	font-family: DejaVuSansMono Nerd Font;
+	font-size: 14px;
 }
 
 #window {
-	  border: 1px solid @highlight;
-    margin: 0px 5px 0px 5px;
-
-}
-
-#inner-box {
-    background-color: @base2;
-
+  border: 1px solid white;
+  margin: 0px 5px 0px 5px;
 }
 
 #outer-box {
   margin: 5px;
   padding:10px;
-  background-color: @base2;
 	margin-top: -22px;
 }
 
-#scroll {
-}
-
 #text {
-padding: 5px;
-color: white;
+  padding: 5px;
+  color: white;
 }
 
-#entry:nth-child(even){
-    background-color: @base1;
+/* Start flavours */
+/* base16-wofi (https://sr.ht/~knezi/base16-wofi)
+ * Base16 wofi template by knezi
+ * Atelier Seaside scheme by Bram de Haan (http://atelierbramdehaan.nl) */
+
+window {
+	background-color: #131513;
+	color: #8ca68c;
 }
 
-#entry {
-    background-color: @base3;
+#entry:nth-child(odd) {
+	background-color: #131513;
+}
+
+#entry:nth-child(even) {
+	background-color: #242924;
 }
 
 #entry:selected {
-    background-color: @highlight;
+	background-color: #5e6e5e;
 }
 
-#text:selected {
+#input {
+	background-color: #242924;
+	color: #809980;
+	border-color: #5e6e5e; 
 }
+
+#input:focus {
+	border-color: #98981b; 
+}
+/* End flavours */
