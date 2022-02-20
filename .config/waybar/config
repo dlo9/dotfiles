@@ -56,7 +56,7 @@
 
 	"cpu": {
 		"interval": 5,
-		"format": " {usage}% ({load:4})",
+		"format": " {usage:2}%",
 		"states": {
 			"warning": 70,
 			"critical": 90,
@@ -76,10 +76,11 @@
 
 	"network": {
 		"interval": 1,
-		"format-wifi": " {essid}({signalStrength}%)",
-		"format-ethernet": " {ifname}: 祝 {bandwidthUpBits}  {bandwidthDownBits}",
+		"interface": "w*",
+		"format-wifi": " {signalStrength}%",
+		"format-ethernet": " {ifname}",
 		"format-disconnected": "⚠ Disconnected",
-		"tooltip-format": "{ifname}: {ipaddr}",
+		"tooltip-format": "{ifname}: {ipaddr}\n{essid}\n祝 {bandwidthUpBits:>8}  {bandwidthDownBits:>8}",
 		"on-click": "alacritty -e nmtui",
 	},
 
