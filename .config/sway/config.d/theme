@@ -23,25 +23,25 @@ for_window [shell="xdg_shell"] title_format "%title (%app_id)"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
 # Start flavours
-## Base16 Atelier Forest
+## Base16 Atelier Seaside
 # Author: Bram de Haan (http://atelierbramdehaan.nl)
 
-set $base00 #1b1918
-set $base01 #2c2421
-set $base02 #68615e
-set $base03 #766e6b
-set $base04 #9c9491
-set $base05 #a8a19f
-set $base06 #e6e2e0
-set $base07 #f1efee
-set $base08 #f22c40
-set $base09 #df5320
-set $base0A #c38418
-set $base0B #7b9726
-set $base0C #3d97b8
-set $base0D #407ee7
-set $base0E #6666ea
-set $base0F #c33ff3
+set $base00 #131513
+set $base01 #242924
+set $base02 #5e6e5e
+set $base03 #687d68
+set $base04 #809980
+set $base05 #8ca68c
+set $base06 #cfe8cf
+set $base07 #f4fbf4
+set $base08 #e6193c
+set $base09 #87711d
+set $base0A #98981b
+set $base0B #29a329
+set $base0C #1999b3
+set $base0D #3d62f5
+set $base0E #ad2bee
+set $base0F #e619c3
 # End flavours
 
 # Basic color configuration using the Base16 variables for windows and borders.

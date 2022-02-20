@@ -25,32 +25,32 @@ window {
 /* Start flavours */
 /* base16-wofi (https://sr.ht/~knezi/base16-wofi)
  * Base16 wofi template by knezi
- * Atelier Forest scheme by Bram de Haan (http://atelierbramdehaan.nl) */
+ * Atelier Seaside scheme by Bram de Haan (http://atelierbramdehaan.nl) */
 
 window {
-	background-color: #1b1918;
-	color: #a8a19f;
+	background-color: #131513;
+	color: #8ca68c;
 }
 
 #entry:nth-child(odd) {
-	background-color: #1b1918;
+	background-color: #131513;
 }
 
 #entry:nth-child(even) {
-	background-color: #2c2421;
+	background-color: #242924;
 }
 
 #entry:selected {
-	background-color: #68615e;
+	background-color: #5e6e5e;
 }
 
 #input {
-	background-color: #2c2421;
-	color: #9c9491;
-	border-color: #68615e; 
+	background-color: #242924;
+	color: #809980;
+	border-color: #5e6e5e; 
 }
 
 #input:focus {
-	border-color: #c38418; 
+	border-color: #98981b; 
 }
 /* End flavours */
