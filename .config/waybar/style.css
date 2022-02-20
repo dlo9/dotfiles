@@ -74,15 +74,13 @@ label {
 /***** Center modules *****/
 /**************************/
 
-#clock, #custom-weather {
-  background: transparent;
+/* Center weather icon*/
+
+#custom-weather {
+  margin-left: -0.5em;
+  margin-right: 3em;
 }
 
-/* Center weather icon*/
-#custom-weather {
-  margin-left: -0.4em;
-  margin-right: 5.3em;
-}
 
 /*************************/
 /***** Right modules *****/
@@ -102,6 +100,11 @@ label {
 #cpu {
   box-shadow: 0 -0.2em @base0A;
   background: alpha(@base0A, 0.25);
+}
+
+#disk {
+  box-shadow: 0 -0.2em @base0D;
+  background: alpha(@base0D, 0.25);
 }
 
 #pulseaudio {
