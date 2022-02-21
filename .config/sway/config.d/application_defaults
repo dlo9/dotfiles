@@ -14,12 +14,17 @@ for_window [window_role="About"] floating enable
 for_window [title="Save File"] floating enable
 for_window [app_id="yad"] floating enable  # Dialogs
 
+for_window [title="Tree Style Tab"] {
+	floating enable
+	resize set 25 ppt 25 ppt
+}
+
 # Picturen-in-Picture: Shrink window to 1/16th workspace
 # size, in bottom right corner
-for_window [window_role="PictureInPicture"] {
+for_window [title="Picture-in-Picture"] {
 	floating enable
 	sticky enable
-	resize set width 25 ppt 25 ppt
+	resize set width 25 ppt height 25 ppt
 	move position 75 ppt 75 ppt
 }
 
