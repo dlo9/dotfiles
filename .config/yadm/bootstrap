@@ -17,6 +17,7 @@ if which yay > /dev/null; then
 
 		# Font
 		nerd-fonts-dejavu-complete
+		noto-fonts-emoji
 
 		# Vim
 		deno
