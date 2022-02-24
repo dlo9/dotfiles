@@ -68,7 +68,21 @@ aliases:
 
     keywords:
       - keys: [--iterate]
-        values: ['flavours list | xargs -I {} -d " " sh -c "echo {}; flavours apply --light {}; sleep 1"']
+        values:
+          - |
+            for theme in \$(flavours list | awk -v RS=' ' '!/-light/'); do
+              echo \$theme
+              flavours apply \$theme
+              sleep 1
+            done
+      - keys: [--iterate-random]
+        values:
+          - |
+            for theme in \$(flavours list | awk -v RS=' ' '!/-light/' | sort -R); do
+              echo \$theme
+              flavours apply \$theme
+              sleep 1
+            done
       - keys: [--apply]
         values: ['flavours apply \$(cat ~/.local/share/flavours/lastscheme)']
       - keys: [--show]

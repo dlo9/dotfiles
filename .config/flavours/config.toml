@@ -2,13 +2,6 @@
 # https://github.com/Misterio77/dotfiles/blob/sway/home/.config/flavours/config.toml
 
 [[item]]
-file = "~/.config/sway/config.d/theme"
-template = "sway"
-subtemplate = "colors"
-light = false
-hook = "swaymsg reload"
-
-[[item]]
 file = "~/.vimrc"
 template = "vim"
 start = '" Start flavours'
@@ -66,5 +59,12 @@ hook = "makoctl reload"
 file = "~/.config/waybar/theme.css"
 template = "waybar"
 rewrite = true
+# Disable hook since it will reload with sway
 #hook = "swaymsg reload"
-hook = "pkill -SIGRTMIN+7 waybar"
+
+[[item]]
+file = "~/.config/sway/config.d/theme"
+template = "sway"
+subtemplate = "colors"
+hook = "swaymsg reload"
+light = false
