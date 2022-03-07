@@ -10,6 +10,7 @@ if which yay > /dev/null; then
 		# Terminal
 		alacritty
 		tmux
+		bottom
 
 		# Shell
 		fish
