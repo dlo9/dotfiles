@@ -39,6 +39,11 @@ if which yay > /dev/null; then
 
 		# Theme
 		flavours
+
+		# VPN
+		tailscale
+		# systemctl enable tailscaled
+		# tailscale up --accept-routes --auth-key <key>
 	)
 
 	echo "Determining packages to install..."
