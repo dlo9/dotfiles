@@ -43,7 +43,13 @@ if which yay > /dev/null; then
 		# VPN
 		tailscale
 		# systemctl enable tailscaled
+		# systemctl start tailscaled
 		# tailscale up --accept-routes --auth-key <key>
+
+		# Bluetooth
+		bluez
+		blueman
+		# systemctl start bluetooth
 	)
 
 	echo "Determining packages to install..."
