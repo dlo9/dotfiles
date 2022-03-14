@@ -27,33 +27,56 @@ if which yay > /dev/null; then
 		# Sway - make unfocused more transparent
 		python-i3ipc
 
+		# File manager
+		thunar
+		gvfs-smb
+		gvfs-mtp
+
+		# RAM
+		zram-generator
+		# systemctl daemon-reload
+		# systemctl start /dev/zram0
+
 		# Theme
 		flavours
 	)
 
-	yay -S --noconfirm --needed "${PACKAGES[@]}"
+	echo "Determining packages to install..."
+	PACKAGES_NEEDED=()
+	for PACKAGE in "${PACKAGES[@]}"; do
+		if ! yay -Qi "$PACKAGE" >/dev/null 2>&1; then
+			PACKAGES_NEEDED=(${PACKAGES_NEEDED[@]} "$PACKAGE")
+		fi
+	done
+
+	if [ "${#PACKAGES_NEEDED[@]}" -gt 0 ]; then
+		echo "Installing packages..."
+		yay -S --noconfirm --needed "${PACKAGES_NEEDED[@]}"
+	fi
 fi
 
 # Install themes
+echo "Installing themes..."
 flavours update all &
 flavours apply "$(cat ~/.local/share/flavours/lastscheme)"
 
 # Set shell
 USER_SHELL="$(chsh -l | grep "$USER_SHELL" | head -1)"
 if [ "$SHELL" != "$USER_SHELL" -a -n "$USER_SHELL" ]; then
+	echo "Setting Shell to $USER_SHELL..."
 	chsh -s "$USER_SHELL"
 fi
 
-# Because Git submodule commands cannot operate without a work tree, they must
-# be run from within $HOME (assuming this is the root of your dotfiles)
-cd "$HOME"
-
-echo "Init submodules"
-yadm submodule update --init
-
 # Install tmux plugins
-# TODO Use a makefile for this?
-.tmux/plugins/tpm/bin/install_plugins
+echo "Installing tmux plugin manager..."
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+if [ ! -e "$TPM_DIR" ]; then
+	git clone "https://github.com/tmux-plugins/tpm" "$TPM_DIR"
+fi
+
+echo "Installing tmux plugins..."
+$HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Update fish plugins
+echo "Updating fish plugins..."
 fish -c "fisher update"
