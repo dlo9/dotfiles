@@ -32,6 +32,10 @@ if which yay > /dev/null; then
 		gvfs-smb
 		gvfs-mtp
 
+		# File viewers
+		zathura  # PDFs
+		zathura-pdf-poppler
+
 		# RAM
 		zram-generator
 		# systemctl daemon-reload
