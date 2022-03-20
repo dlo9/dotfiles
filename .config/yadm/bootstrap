@@ -54,6 +54,10 @@ if which yay > /dev/null; then
 		bluez
 		blueman
 		# systemctl start bluetooth
+
+		# Sharing
+		syncthing
+		# systemctl --user enable syncthing
 	)
 
 	echo "Determining packages to install..."
