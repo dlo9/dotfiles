@@ -2,16 +2,14 @@
 # https://github.com/Misterio77/dotfiles/blob/sway/home/.config/flavours/config.toml
 
 [[item]]
-file = "~/.vimrc"
+file = "~/.vim/plugin/theme.vim"
 template = "vim"
-start = '" Start flavours'
-end = '" End flavours'
+rewrite = true
 
 [[item]]
-file = "~/.vimrc"
+file = "~/.vim/plugin/theme-airline.vim"
 template = "vim-airline-themes"
-start = '" Start flavours airline'
-end = '" End flavours airline'
+rewrite = true
 
 [[item]]
 file = "~/.config/fish/conf.d/base16.sh"
