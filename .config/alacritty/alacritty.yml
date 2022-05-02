@@ -327,7 +327,8 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/bin/fish
+  #program: /usr/bin/fish
+  program: /run/current-system/sw/bin/fish
   args:
     - --login
 
@@ -350,7 +351,7 @@ mouse:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: true
+  hide_when_typing: false
 
 # Regex hints
 #
